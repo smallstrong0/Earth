@@ -5,12 +5,17 @@ from flask import Flask
 
 app = Flask(__name__)
 
+apis = {
+    'test'
+}
 
-@app.route('/')
-def hello_world():
-    print 'uwsgi log'
-    return 'Hello World!'
+
+@app.route('/api/<func>', methods=['GET', 'POST'])
+def hello_world(func):
+    exec 'import ' + func
+    data = eval(func + '.go()')
+    return data
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
