@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+    print 'uwsgi log'
     return 'Hello World!'
 
 
