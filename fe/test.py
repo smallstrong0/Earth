@@ -5,4 +5,5 @@ import web
 
 
 def go():
+    print 'auto publish'
     return 'intersting'
