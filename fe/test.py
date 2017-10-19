@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import lib.core.check as check
+import core.check as check
 
 
 def go():
