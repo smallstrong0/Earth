@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import lib.common.func as cn_func
+import lib.core.check as check
 
 
 def go():
     keys = {
         'ts': None,
     }
-
-    params, error = cn_func.get_web_params(keys)
-    return cn_func.check_sort_serialize(params)
+    error, params = check.go(keys)
+    if error is None:
+        pass
