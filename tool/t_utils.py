@@ -1,6 +1,10 @@
 #! /usr/bin/env python
 # -*- coding: utf8 -*-
 
+"""
+time utils
+"""
+
 import time
 import datetime
 import calendar
