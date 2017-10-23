@@ -10,7 +10,7 @@ whale_apis = {
 }
 
 
-@app.route('/<func>', methods=['GET', 'POST'])
+@app.route('/api/<func>', methods=['GET', 'POST'])
 def go(func):
     # if func not in whale_apis:
     #     return abort(401)
