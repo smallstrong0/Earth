@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import core.check as check
+import tool.c_utils
 
 
 def go():
@@ -12,7 +13,6 @@ def go():
     }
     error, params = check.go(keys)
     if error is None:
-        print params
-        return 'intersting'
+        return tool.c_utils.sort_serialize(params)
     else:
         return 'bad'
