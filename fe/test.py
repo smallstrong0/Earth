@@ -5,10 +5,14 @@ import core.check as check
 
 
 def go():
-    return 'intersting'
-    # keys = {
-    #     'ts': None,
-    # }
-    # error, params = check.go(keys)
-    # if error is None:
-    #     pass
+    keys = {
+        'ts': None,
+        'nonce': None,
+        'test': None,
+    }
+    error, params = check.go(keys)
+    if error is None:
+        print params
+        return 'intersting'
+    else:
+        return 'bad'
