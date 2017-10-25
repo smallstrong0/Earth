@@ -74,6 +74,6 @@ def check_sort_serialize(data=None, msg=None):
     :return:
     """
     if msg is not None and len(msg) > 0:  # 说明有错误
-        return c_tool.sort_serialize({"data": {}, "code": -1, "message": msg})
+        return sort_serialize({"data": {}, "code": -1, "message": msg})
     elif msg is None and data is not None:
-        return c_tool.sort_serialize({"data": data, "code": 200, "message": "ok"})
+        return sort_serialize({"data": data, "code": 200, "message": "ok"})
