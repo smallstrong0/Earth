@@ -12,7 +12,10 @@ def go():
         'test': None,
     }
     error, params = check.go(keys)
+
     if error is None:
+        print c_tool.check_sort_serialize(data=params)
         return c_tool.check_sort_serialize(data=params)
     else:
+        print c_tool.check_sort_serialize(msg='error')
         return c_tool.check_sort_serialize(msg='error')
