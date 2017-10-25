@@ -37,11 +37,9 @@ def go(keys):
             error = -1, '解密失败'
             print e
         if error is None:
-            try:
-                params = c_tool.deserialize(json_string)
-            except Exception as e:
+            params = c_tool.deserialize(json_string)
+            if params is None:
                 error = -2, '反序列化失败'
-                print e
         if error is None:
             params, error = get_web_params(keys, params)
         if error is None:
@@ -60,6 +58,8 @@ def go(keys):
             for k in keys:
                 if k not in params:
                     params[k] = keys[k]
+    else:
+        error = -10086, 'not my rule'
 
     return error, params
 
@@ -152,5 +152,7 @@ def encrypt(text):
 
 
 if __name__ == '__main__':
-    print encrypt('aaa0cdsncoudncioandsicojnasiopcjnasiopcjnioasjncioadsncioadsncionasdiocnasiocnasioncsioancsiao0000')
-    print decrypt('xsaxasx')
+    print c_tool.hash('{"ts":1508923651,"nonce":114322,"test":111}')
+    print encrypt('{"ts":1508923651,"nonce":114322,"test":111,sig:86b030fc8fac6b66cfb6fe5a36472ea53fbfc854}')
+    print decrypt(
+        encrypt('{"ts":1508923651,"nonce":114322,"test":111,sig:86b030fc8fac6b66cfb6fe5a36472ea53fbfc854}'))
