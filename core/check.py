@@ -1,5 +1,10 @@
 #! /usr/bin/env python
 # -*- coding: utf8 -*-
+
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 """
 接收数据处理：
 1.对接受到的数据进行AES解密，得到json文本
