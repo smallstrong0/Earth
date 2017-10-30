@@ -6,7 +6,20 @@ from flask import Flask
 app = Flask(__name__)
 
 whale_apis = {
-    'test'
+
+    'login',  # 用户相关
+    'mod_user_info',
+    'get_user_info',
+    'add_coin',
+
+    'list_order',  # 订单相关
+    'commit_order',
+    'pay_order',
+
+    'add_address',  # 地址相关
+    'list_address',
+    'mod_address',
+    'remove_address',
 }
 
 
@@ -19,4 +32,3 @@ def go(func):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
