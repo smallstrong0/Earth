@@ -16,7 +16,6 @@ def go():
     dic = {
         'openid': '',
         'session_key': '',
-        'unionid': '',
         'user_id': ''
     }
 
@@ -24,7 +23,8 @@ def go():
         r = requests.get(
             'https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'.format(
                 'wxe91e789389d690e9', '841d4c6f2089bce65cde91fa4d09fd52', params['code']))
-        dic['open_id'] = r.json()
+        dic['open_id'] = r.json()['open']
+        dic['session_key'] = r.json()['session_key']
 
     if error is None:
         return c_tool.check_sort_serialize(data=dic)
