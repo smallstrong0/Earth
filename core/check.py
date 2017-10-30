@@ -25,6 +25,17 @@ key = 'bda630k5-393d-0o2c-a907-312ea466'
 mode = AES.MODE_CBC
 
 
+def simple_go(keys):
+    error = None
+    params = {}
+    params_list = eval(request.values.items().__str__())
+    for item in params_list:
+        params[item[0]] = item[1]
+    params, error = get_web_params(keys, params)
+
+    return error, params
+
+
 def go(keys):
     error = None
     params = {}
