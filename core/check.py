@@ -98,7 +98,7 @@ def get_web_params(keys, params):
                 return {}, (-1, 'param <{}> is missing'.format(k))
     if params.has_key('user_id'):
         try:
-            long(params['user_id'])
+            str(params['user_id'])
         except Exception as e:
             return {}, (-1, 'invalid user_id = {}'.format(params['user_id']))
 
