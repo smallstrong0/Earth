@@ -1,8 +1,9 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 import core.mongo as db_core
 import tool.c_utils
 import tool.t_utils
 
-# login 表
 collection = db_core.DbUtils().db.login
 
 

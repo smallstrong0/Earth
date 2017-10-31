@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
 import dao.login as dao_login
