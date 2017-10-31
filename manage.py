@@ -5,6 +5,7 @@ from flask import Flask
 
 app = Flask(__name__)
 # test auto publish and restart
+# sudo command
 whale_apis = {
 
     'login',  # 用户相关
