@@ -4,7 +4,7 @@
 from flask import Flask
 
 app = Flask(__name__)
-
+# test auto publish and restart
 whale_apis = {
 
     'login',  # 用户相关
