@@ -4,7 +4,15 @@ import core.mongo as db_core
 import tool.c_utils
 import tool.t_utils
 
-collection = db_core.DbUtils().db.login
+collection = db_core.DbUtils().db.user
+
+"""
+字段规则
+ctime
+mtime
+wechat_id 微信的open_id
+user_id 用户ID全局唯一 UUID生成
+"""
 
 
 def create(dic={}):
