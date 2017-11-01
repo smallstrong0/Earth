@@ -8,7 +8,7 @@ import pymongo
 
 def get_wx_user_id(openid):
     result = dao_login.select({'wechat_id': openid}, ['wechat_id', 'user_id'], 1, [('port', pymongo.ASCENDING)])
-    if len(result) > 0:
+    if result.count() > 0:
         return result[0]['user_id']
     else:
         data = dao_login.create(
