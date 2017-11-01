@@ -9,7 +9,7 @@ import dap.mod_user_info as d_mod_user_info
 
 def go():
     keys = {
-        'user': None,
+        'user_id': None,
         'user_info': None,
     }
     error, params = check.simple_go(keys)
