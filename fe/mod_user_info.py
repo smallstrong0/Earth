@@ -20,8 +20,11 @@ def go():
 
     if error is None:
         print c_tool.sort_serialize(params)
-        # d_mod_user_info.set_user_info(params)
-
+        bool = d_mod_user_info.set_user_info(params)
+        if bool:
+            dic['status'] = 'ok'
+        else:
+            dic['status'] = 'bad'
     if error is None:
         return c_tool.check_sort_serialize(data=dic)
     else:

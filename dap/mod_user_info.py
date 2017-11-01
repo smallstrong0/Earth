@@ -9,5 +9,6 @@ import pymongo
 def set_user_info(params):
     result = dao_user.select({'user_id': params['user_id']}, ['wechat_id', 'user_id'], 1, [('port', pymongo.ASCENDING)])
     if result.count() > 0:
-
-        pass
+        return dao_user.update({'user_id': params['user_id']}, {'user_info': params['user_info']})
+    else:
+        return False
