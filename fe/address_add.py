@@ -23,8 +23,9 @@ def go():
 
     if error is None:
         result = d_address.add_address(params)
+        print result
         if result:
-            dic.update(result)
+            dic['status'] = 'ok'
         else:
             error = '添加地址失败'
 

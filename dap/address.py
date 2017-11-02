@@ -7,7 +7,7 @@ import pymongo
 
 
 def add_address(params):
-    params['address'] = c_tool.guid()
+    params['address_id'] = c_tool.guid()
     return dao_address.create(params)
 
 

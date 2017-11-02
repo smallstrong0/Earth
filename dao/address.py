@@ -26,6 +26,7 @@ def create(dic={}):
     dic['mtime'] = tool.t_utils.get_ts()
     code = collection.insert(dic)
     if code:
+        print dic
         return dic
     else:
         return None
