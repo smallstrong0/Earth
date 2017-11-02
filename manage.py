@@ -17,10 +17,10 @@ whale_apis = {
     'commit_order',
     'pay_order',
 
-    'add_address',  # 地址相关
-    'list_address',
-    'mod_address',
-    'remove_address',
+    'address_add',  # 地址相关
+    'address_list',
+    'address_mod',
+    'address_del',
 }
 
 
