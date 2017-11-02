@@ -12,7 +12,7 @@ def get_wx_user_id(openid):
         return result[0]['user_id']
     else:
         data = dao_user.create(
-            {'wechat_id': openid, 'user_id': c_tool.guid(), 'ctime': t_tool.get_ts(), 'mtime': t_tool.get_ts()})
+            {'wechat_id': openid, 'user_id': c_tool.guid()})
         if data:
             return data['user_id']
         else:
