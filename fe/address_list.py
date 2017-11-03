@@ -22,6 +22,6 @@ def go():
             error = -2, '获取地址失败'
 
     if error is None:
-        return c_tool.serialize(data=result)
+        return c_tool.serialize(data=result[0])
     else:
         return c_tool.check_sort_serialize(msg=error)
