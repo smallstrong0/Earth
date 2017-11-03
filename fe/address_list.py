@@ -12,15 +12,20 @@ def go():
     }
     error, params = check.simple_go(keys)
 
+    dic = {
+        'addr_list': []
+    }
+
     if error is None:
         result = d_address.get_address_list(params)
         print result
+        print type(result)
         if result:
-            pass
+            dic['addr_list'] = result
         else:
-            error = '获取地址失败'
+            error = -2, '获取地址失败'
 
     if error is None:
-        return c_tool.check_sort_serialize(data=result)
+        return c_tool.check_sort_serialize(data=dic)
     else:
         return c_tool.check_sort_serialize(msg=error)
