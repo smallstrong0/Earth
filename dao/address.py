@@ -38,10 +38,10 @@ def update(old={}, new={}):
 
 def select(where={}):
     cursor = collection.find(where)
-    _list = []
-    while cursor.hasNext():
-        _list.append(cursor.next())
-    return _list
+    if cursor.count() > 0:
+        return list(cursor)
+    else:
+        return []
 
 
 def delete(field={}):
