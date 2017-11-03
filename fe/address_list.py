@@ -14,13 +14,13 @@ def go():
 
     if error is None:
         result = d_address.get_address_list(params)
-        print result
+        print result[0]
         if result:
             pass
         else:
             error = '获取地址失败'
 
     if error is None:
-        return c_tool.check_sort_serialize(data=result)
+        return c_tool.check_sort_serialize(data=result[0])
     else:
         return c_tool.check_sort_serialize(msg=error)
