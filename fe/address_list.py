@@ -16,7 +16,7 @@ def go():
         result = d_address.get_address_list(params)
         print result
         print type(result)
-        if result:
+        if len(result) >= 0:
             pass
         else:
             error = -2, '获取地址失败'
