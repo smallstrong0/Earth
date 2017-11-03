@@ -21,4 +21,4 @@ def remove_address(params):
 
 
 def get_address_list(params):
-    return dao_address.select({'user_id': params['user_id']}, [], 10, [('port', pymongo.ASCENDING)])
+    return dao_address.select({'user_id': params['user_id']})

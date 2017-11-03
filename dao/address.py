@@ -36,8 +36,12 @@ def update(old={}, new={}):
     return True if collection.update(old, {'$set': new}) else False
 
 
-def select(where={}, field=[], limits=3, ordering=[]):
-    return collection.find(where, field).limit(limits).sort(ordering)
+def select(where={}):
+    cursor = collection.find(where)
+    _list = []
+    while cursor.hasNext():
+        _list.append(cursor.next())
+    return _list
 
 
 def delete(field={}):
