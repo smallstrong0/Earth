@@ -11,7 +11,7 @@ def go():
         'user_id': None,
     }
     error, params = check.simple_go(keys)
-
+    result = []
     if error is None:
         result = d_address.get_address_list(params)
         print result
@@ -22,6 +22,6 @@ def go():
             error = -2, '获取地址失败'
 
     if error is None:
-        return c_tool.serialize(data=result)
+        return c_tool.check_sort_serialize(data=result)
     else:
         return c_tool.check_sort_serialize(msg=error)
