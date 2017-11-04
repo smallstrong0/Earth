@@ -14,8 +14,6 @@ def go():
     result = []
     if error is None:
         result = d_address.get_address_list(params)
-        print result
-        print type(result)
         if len(result) >= 0:
             for addr in result:
                 addr.pop('_id')
@@ -23,8 +21,6 @@ def go():
             error = -2, '取地址失败'
 
     if error is None:
-        print 'test'
-        print c_tool.check_sort_serialize(data=result)
         return c_tool.check_sort_serialize(data=result)
     else:
         return c_tool.check_sort_serialize(msg=error)
