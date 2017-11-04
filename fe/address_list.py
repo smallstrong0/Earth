@@ -25,6 +25,6 @@ def go():
     if error is None:
         print 'test'
         print c_tool.check_sort_serialize(data=result)
-        return c_tool.check_sort_serialize(data=str(result))
+        return c_tool.check_sort_serialize(data=result)
     else:
         return c_tool.check_sort_serialize(msg=error)
