@@ -17,7 +17,8 @@ def go():
         print result
         print type(result)
         if len(result) >= 0:
-            pass
+            for addr in result:
+                addr.pop('_id')
         else:
             error = -2, '取地址失败'
 
