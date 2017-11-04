@@ -19,9 +19,11 @@ def go():
         if len(result) >= 0:
             pass
         else:
-            error = -2, '获取地址失败'
+            error = -2, '取地址失败'
 
     if error is None:
-        return c_tool.check_sort_serialize(data=result)
+        print 'test'
+        print c_tool.check_sort_serialize(data=result)
+        return c_tool.check_sort_serialize(data=str(result))
     else:
         return c_tool.check_sort_serialize(msg=error)
