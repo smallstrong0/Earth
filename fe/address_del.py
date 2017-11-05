@@ -8,7 +8,6 @@ import dap.address as d_address
 
 def go():
     keys = {
-        'user_id': None,
         'address_id': None,
     }
     error, params = check.simple_go(keys)
