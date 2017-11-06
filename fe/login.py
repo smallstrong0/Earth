@@ -41,6 +41,6 @@ def get_time_stamps():
     z_ts = t_tool.get_today_zero_time()
     first_stamp = z_ts + 3600 * 9
     time_stamps_zh = []
-    for i in 7:
+    for i in range(7):
         time_stamps_zh.append(t_tool.get_time(first_stamp + 3600 * i))
     return time_stamps_zh
