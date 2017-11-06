@@ -13,6 +13,8 @@ def go():
     error, params = check.simple_go(keys)
     if error is None:
         order_list = dap_order.get_order_list(params)
+        for order in order_list:
+            order.pop('_id')
     if error is None:
         return c_tool.check_sort_serialize(data=order_list)
     else:
