@@ -30,7 +30,6 @@ def go():
             dap_order.add_order(params)
         else:
             error = '创建订单失败'
-    print params
     params.pop('_id')
     if error is None:
         return c_tool.check_sort_serialize(data=params)
