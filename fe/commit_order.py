@@ -24,7 +24,7 @@ def go():
         'we_chat': '',
         'remark': '',
     }
-    error, params = check.go(keys)
+    error, params = check.simple_go(keys)
     if error is None:
         if dap_order.check_order(params):
             dap_order.add_order(params)
