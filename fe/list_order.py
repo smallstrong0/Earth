@@ -3,19 +3,17 @@
 
 import core.check as check
 import tool.c_utils as c_tool
+import dap.order as dap_order
 
 
 def go():
     keys = {
-        'ts': None,
-        'nonce': None,
-        'test': None,
+        'user_id': None,
     }
-    error, params = check.go(keys)
-
+    error, params = check.simple_go(keys)
     if error is None:
-        print c_tool.check_sort_serialize(data=params)
-        return c_tool.check_sort_serialize(data=params)
+        order_list = dap_order.get_order_list(params)
+    if error is None:
+        return c_tool.check_sort_serialize(data=order_list)
     else:
-        print c_tool.check_sort_serialize(msg='error')
-        return c_tool.check_sort_serialize(msg='error')
+        return c_tool.check_sort_serialize(msg=error)
