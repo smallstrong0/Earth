@@ -17,6 +17,7 @@ def go():
         for order in order_list:
             order.pop('_id')
             order['ctime'] = t_tool.get_time(long(order['ctime']))
+        order_list.reverse()
     if error is None:
         return c_tool.check_sort_serialize(data=order_list)
     else:
