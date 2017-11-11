@@ -16,7 +16,7 @@ def go():
         order_list = dap_order.get_order_list(params)
         for order in order_list:
             order.pop('_id')
-            order['ctime'] = t_tool.get_day(long(order['ctime']))
+            order['ctime'] = t_tool.get_time(long(order['ctime']))
     if error is None:
         return c_tool.check_sort_serialize(data=order_list)
     else:
