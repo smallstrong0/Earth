@@ -6,6 +6,7 @@ import tool.c_utils as c_tool
 import tool.t_utils as t_tool
 import requests
 import dap.login as d_login
+import key
 
 
 def go():
@@ -25,7 +26,7 @@ def go():
     if error is None:
         r = requests.get(
             'https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'.format(
-                'wxe91e789389d690e9', '841d4c6f2089bce65cde91fa4d09fd52', params['code']))
+                key.appId, key.AppSecret, params['code']))
         dic['openid'] = r.json()['openid']
         dic['session_key'] = r.json()['session_key']
         dic['user_id'] = d_login.get_wx_user_id(dic['openid'])
