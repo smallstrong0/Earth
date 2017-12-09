@@ -19,12 +19,10 @@ def get_pay_sign(prepay_id, dic):
              'package={}&'.format(package), 'signType={}&'.format(signType)]
     _list = sorted(_list)
 
-    print c_tool.sort_serialize(_list)
     for i in _list:
         pay_sign = pay_sign + i
     pay_sign = pay_sign + 'key={}'.format(key.store_key)
 
-    print pay_sign
     pay_sign = str(c_tool.md5(pay_sign)).upper()
     dic['timeStamp'] = timeStamp
     dic['nonceStr'] = nonceStr
@@ -42,7 +40,10 @@ def get_data(params):
     openid = params['openid']
     out_trade_no = "yy{}".format(t_tool.get_ts())
     spbill_create_ip = key.ip
-    total_fee = int(params['money']) * 100
+    if key.DEBUG:
+        total_fee = 1
+    else:
+        total_fee = int(params['money']) * 100
     sign = paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, openid, out_trade_no,
                         spbill_create_ip, total_fee)
 
@@ -60,8 +61,6 @@ def get_data(params):
     formData += "<sign>{}</sign>".format(sign)
     formData += "</xml>"
 
-    print formData
-
     return formData
 
 
@@ -74,10 +73,8 @@ def paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, openid, out_trade_
              'total_fee={}&'.format(total_fee), 'trade_type={}&'.format('JSAPI')]
     _list = sorted(_list)
 
-    print c_tool.sort_serialize(_list)
     for i in _list:
         m_str = m_str + i
 
     m_str = m_str + 'key={}'.format(key.store_key)
-    print m_str
     return str(c_tool.md5(m_str)).upper()

@@ -25,14 +25,9 @@ def go():
         data = dap.add_coin.get_data(params)
         r = requests.post(
             'https://api.mch.weixin.qq.com/pay/unifiedorder', data)
-        print r.content
-
         xml = etree.fromstring(r.content)  # 进行XML解析
         prepay_id = xml.find("prepay_id").text  # 获得用户所输入的内容
-        print prepay_id
-        dap.add_coin.get_pay_sign(prepay_id,dic)
-
-
+        dap.add_coin.get_pay_sign(prepay_id, dic)
 
     if error is None:
         return c_tool.check_sort_serialize(data=dic)
