@@ -45,11 +45,13 @@ def paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, openid, out_trade_
     _list = ['appid={}&'.format(app_id), 'body={}&'.format(body), 'mch_id={}&'.format(mch_id),
              'nonce_str={}&'.format(nonce_str), 'notify_url={}&'.format(notify_url), 'openid={}&'.format(openid),
              'out_trade_no={}&'.format(out_trade_no), 'spbill_create_ip={}&'.format(spbill_create_ip),
-             'total_fee={}&'.format(total_fee), 'total_fee={}&'.format('JSAPI'), 'key={}'.format(key.store_key)]
+             'total_fee={}&'.format(total_fee), 'trade_type={}&'.format('JSAPI')]
     _list = sorted(_list)
 
     print c_tool.sort_serialize(_list)
     for i in _list:
         m_str = m_str + i
+
+    m_str = m_str + 'key={}'.format(key.store_key)
     print m_str
     return str(c_tool.md5(m_str)).upper()
