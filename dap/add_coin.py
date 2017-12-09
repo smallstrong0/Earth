@@ -7,7 +7,7 @@ import key
 import random
 
 
-def get_pay_sign(prepay_id):
+def get_pay_sign(prepay_id, dic):
     pay_sign = ''
     appId = key.appId
     timeStamp = t_tool.get_ts()
@@ -25,7 +25,12 @@ def get_pay_sign(prepay_id):
     pay_sign = pay_sign + 'key={}'.format(key.store_key)
 
     print pay_sign
-    return str(c_tool.md5(pay_sign)).upper()
+    pay_sign = str(c_tool.md5(pay_sign)).upper()
+    dic['timeStamp'] = timeStamp
+    dic['nonceStr'] = nonceStr
+    dic['paySign'] = pay_sign
+    dic['package'] = 'prepay_id={}'.format(prepay_id)
+    dic['signType'] = 'MD5'
 
 
 def get_data(params):
