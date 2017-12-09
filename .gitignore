@@ -3,3 +3,6 @@
 .DS_Store
 *.pyc
 key.py
+api_env/
+publish.sh
+uwsgi.ini
