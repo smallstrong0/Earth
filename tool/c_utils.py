@@ -29,6 +29,12 @@ def hash(plain):
     return hashlib.sha1(plain).hexdigest()
 
 
+def md5(_str):
+    msg = hashlib.md5()
+    msg.update(_str)
+    return msg.hexdigest()
+
+
 def serialize(data):
     """
     序列化
