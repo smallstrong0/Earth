@@ -25,7 +25,7 @@ def get_pay_sign(prepay_id):
     pay_sign = pay_sign + 'key={}'.format(key.store_key)
 
     print pay_sign
-    return c_tool.md5(pay_sign)
+    return str(c_tool.md5(pay_sign)).upper()
 
 
 def get_data(params):
