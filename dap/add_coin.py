@@ -15,7 +15,7 @@ def get_pay_sign(prepay_id):
     package = 'prepay_id={}'.format(prepay_id)
     signType = 'MD5'
 
-    _list = ['appid={}&'.format(appId), 'timeStamp={}&'.format(timeStamp), 'nonceStr={}&'.format(nonceStr),
+    _list = ['appId={}&'.format(appId), 'timeStamp={}&'.format(timeStamp), 'nonceStr={}&'.format(nonceStr),
              'package={}&'.format(package), 'signType={}&'.format(signType)]
     _list = sorted(_list)
 
