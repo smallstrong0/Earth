@@ -13,11 +13,11 @@ def get_data(params):
     mch_id = key.mch_id
     nonce_str = random.randint(100000, 999999)
     notify_url = 'https://www.smallstrong.site'
-    open_id = params['open_id']
+    openid = params['openid']
     out_trade_no = "yy{}".format(t_tool.get_ts())
     spbill_create_ip = key.ip
     total_fee = int(params['money']) * 100
-    sign = paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, open_id, out_trade_no,
+    sign = paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, openid, out_trade_no,
                         spbill_create_ip, total_fee)
 
     formData = "<xml>"
@@ -26,7 +26,7 @@ def get_data(params):
     formData += "<mch_id>{}</mch_id>".format(mch_id)
     formData += "<nonce_str>{}</nonce_str>".format(nonce_str)
     formData += "<notify_url>{}</notify_url>".format(notify_url)
-    formData += "<openid>{}</openid>".format(open_id)
+    formData += "<openid>{}</openid>".format(openid)
     formData += "<out_trade_no>{}</out_trade_no>".format(out_trade_no)
     formData += "<spbill_create_ip>{}</spbill_create_ip>".format(spbill_create_ip)
     formData += "<total_fee>{}</total_fee>".format(total_fee)
@@ -37,11 +37,11 @@ def get_data(params):
     return formData
 
 
-def paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, open_id, out_trade_no,
+def paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, openid, out_trade_no,
                  spbill_create_ip, total_fee):
     m_str = ''
     _list = ['appid={}&'.format(app_id), 'body={}&'.format(body), 'mch_id={}&'.format(mch_id),
-             'nonce_str={}&'.format(nonce_str), 'notify_url={}&'.format(notify_url), 'openid={}&'.format(open_id),
+             'nonce_str={}&'.format(nonce_str), 'notify_url={}&'.format(notify_url), 'openid={}&'.format(openid),
              'out_trade_no={}&'.format(out_trade_no), 'spbill_create_ip={}&'.format(spbill_create_ip),
              'total_fee={}&'.format(total_fee), 'total_fee={}&'.format('JSAPI'), 'key={}'.format(key.store_key)]
     _list = sorted(_list)
