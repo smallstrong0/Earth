@@ -23,7 +23,7 @@ def go():
         data = dap.add_coin.get_data(params)
         r = requests.post(
             'https://api.mch.weixin.qq.com/pay/unifiedorder', data)
-        print r
+        print r.content
 
     if error is None:
         return c_tool.check_sort_serialize(data=dic)
