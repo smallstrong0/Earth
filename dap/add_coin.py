@@ -34,6 +34,8 @@ def get_data(params):
     formData += "<sign>{}</sign>".format(sign)
     formData += "</xml>"
 
+    print formData
+
     return formData
 
 
@@ -45,7 +47,9 @@ def paysignjsapi(app_id, body, mch_id, nonce_str, notify_url, openid, out_trade_
              'out_trade_no={}&'.format(out_trade_no), 'spbill_create_ip={}&'.format(spbill_create_ip),
              'total_fee={}&'.format(total_fee), 'total_fee={}&'.format('JSAPI'), 'key={}'.format(key.store_key)]
     _list = sorted(_list)
+
+    print c_tool.sort_serialize(_list)
     for i in _list:
         m_str = m_str + i
-
+    print m_str
     return str(c_tool.md5(m_str)).upper()
