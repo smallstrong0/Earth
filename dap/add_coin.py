@@ -7,6 +7,26 @@ import key
 import random
 
 
+def get_pay_sign(prepay_id):
+    pay_sign = ''
+    appId = key.appId
+    timeStamp = t_tool.get_ts()
+    nonceStr = random.randint(100000, 999999)
+    package = 'prepay_id={}'.format(prepay_id)
+    signType = 'MD5'
+
+    _list = ['appId={}&'.format(appId), 'timeStamp={}&'.format(timeStamp), 'nonceStr={}&'.format(nonceStr),
+             'package={}&'.format(package), 'signType={}&'.format(signType)]
+    _list = sorted(_list)
+
+    print c_tool.sort_serialize(_list)
+    for i in _list:
+        pay_sign = pay_sign + i
+    pay_sign = pay_sign + 'key={}'.format(key.store_key)
+
+    return c_tool.md5(pay_sign)
+
+
 def get_data(params):
     app_id = key.appId
     body = '有印充值中心'
