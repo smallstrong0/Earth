@@ -14,9 +14,10 @@ def go():
     keys = {
         'user_id': None,
         'money': None,
-        'openid': None
+        'out_trade_no': None,
     }
     error, params = check.simple_go(keys)
+    print c_tool.sort_serialize(params)
 
     dic = {
     }
@@ -24,10 +25,10 @@ def go():
     if error is None:
         data = dap.add_coin.get_data(params)
         r = requests.post(
-            'https://api.mch.weixin.qq.com/pay/unifiedorder', data)
+            'https://api.mch.weixin.qq.com/pay/orderquery', data)
+        print r.content
         xml = etree.fromstring(r.content)  # 进行XML解析
-        prepay_id = xml.find("prepay_id").text  # 获得用户所输入的内容
-        dap.add_coin.get_pay_sign(prepay_id, dic)
+        print xml
 
     if error is None:
         return c_tool.check_sort_serialize(data=dic)
