@@ -15,7 +15,7 @@ def go():
     error, params = check.simple_go(keys)
 
     dic = {
-        'stastus': 'ok',
+        'status': 'ok',
     }
 
     if error is None:
