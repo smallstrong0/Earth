@@ -5,6 +5,15 @@ import tool.t_utils as t_tool
 import pymongo
 import key
 import random
+import dao.user as dao_user
+
+recharge = {
+    '100': 10,
+    '500': 550,
+    '1000': 110,
+    '2000': 230,
+    '5000': 600,
+}
 
 
 def get_data(params):
@@ -37,3 +46,23 @@ def paysignjsapi(app_id, mch_id, nonce_str, out_trade_no):
 
     m_str = m_str + 'key={}'.format(key.store_key)
     return str(c_tool.md5(m_str)).upper()
+
+
+def let_add_coin(params, total_fee):
+    error = None
+    if key.DEBUG:
+        coin = recharge['{}'.format(int(params['money']) * 100)]
+    else:
+        coin = recharge['{}'.format(total_fee)]
+
+    result = dao_user.select({'user_id': params['user_id']}, ['coin', 'user_id'], 1, [('port', pymongo.ASCENDING)])
+    _coin = 0
+    if result.count() > 0:
+        _coin = result[0]['coin'] + coin
+        b = dao_user.update({'user_id': params['user_id']}, {'coin': _coin})
+        if not b:
+            error = '添加失败'
+    else:
+        error = '找不到用户'
+
+    return error, _coin

@@ -28,9 +28,12 @@ def go():
             'https://api.mch.weixin.qq.com/pay/orderquery', data)
         print r.content
         xml = etree.fromstring(r.content)  # 进行XML解析
-        print xml
+        total_fee = xml.find("total_fee").text
+        error, _coin = dap.add_coin.let_add_coin(params, total_fee)
+        dic['coin'] = _coin
 
     if error is None:
+
         return c_tool.check_sort_serialize(data=dic)
     else:
         return c_tool.check_sort_serialize(msg=error)
