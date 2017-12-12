@@ -21,6 +21,8 @@ whale_apis = {
     'address_list',
     'address_mod',
     'address_del',
+
+    'recharge',  # 充值
 }
 
 
