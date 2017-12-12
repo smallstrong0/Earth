@@ -12,7 +12,6 @@ import key
 def go():
     keys = {
         'code': None,
-
     }
     error, params = check.simple_go(keys)
 
@@ -29,7 +28,9 @@ def go():
                 key.appId, key.AppSecret, params['code']))
         dic['openid'] = r.json()['openid']
         dic['session_key'] = r.json()['session_key']
-        dic['user_id'] = d_login.get_wx_user_id(dic['openid'])
+        data = d_login.get_wx_user_id_and_coin(dic['openid'])
+        dic['user_id'] = data['user_id']
+        dic['coin'] = data['coin']
         dic['time_stamps_zh'] = get_time_stamps()
 
     if error is None:
