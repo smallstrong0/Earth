@@ -13,7 +13,7 @@ def go():
         'user_id': None,
     }
     error, params = check.simple_go(keys)
-
+    info = {}
     if error is None:
         info = dap.get_user_info.get_info(params)
         print c_tool.sort_serialize(info)
