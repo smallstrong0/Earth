@@ -16,8 +16,9 @@ def go():
 
     if error is None:
         info = dap.get_user_info.get_info(params)
+        print c_tool.sort_serialize(info)
         if info:
-            info.pop('_id')
+            pass
         else:
             info = {'coin': 0}
 
