@@ -27,6 +27,8 @@ def get_order_list(params):
 def check_order(params):
     coin = params['coin']
     user_coin = dap.get_user_coin.get_coin(params)
+    print 'user_coin{}'.format(user_coin)
+    print 'coin{}'.format(coin)
     if user_coin >= coin:
         return True
     else:
