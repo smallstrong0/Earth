@@ -6,9 +6,11 @@ import dao.user as dao_user
 import pymongo
 
 
-def get_info(params):
+def get_coin(params):
     result = dao_user.select({'user_id': params['user_id']}, ['coin'], 1, [('port', pymongo.ASCENDING)])
+
     if result.count() > 0:
-        return list(result)[0]
+        print list(result)[0]
+        return list(result)[0]['coin']
     else:
-        return None
+        return 0

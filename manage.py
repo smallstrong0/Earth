@@ -10,7 +10,7 @@ whale_apis = {
 
     'login',  # 用户相关
     'mod_user_info',
-    'get_user_info',
+    'get_user_coin',
     'add_coin',
 
     'list_order',  # 订单相关
