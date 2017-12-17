@@ -29,7 +29,7 @@ def go():
         if dap_order.check_order(params):
             dap_order.add_order(params)
         else:
-            error = '创建订单失败'
+            error = '创建订单失败,印币不足'
     params.pop('_id')
     if error is None:
         return c_tool.check_sort_serialize(data=params)

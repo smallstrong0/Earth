@@ -3,6 +3,7 @@
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
 import dao.order as dao_order
+import dap.get_user_coin
 import pymongo
 
 
@@ -24,4 +25,9 @@ def get_order_list(params):
 
 
 def check_order(params):
-    return True
+    coin = params['coin']
+    user_coin = dap.get_user_coin.get_coin(params)
+    if user_coin >= coin:
+        return True
+    else:
+        return False
