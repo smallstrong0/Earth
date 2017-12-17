@@ -4,6 +4,7 @@ import tool.c_utils as c_tool
 import tool.t_utils as t_tool
 import dao.order as dao_order
 import dap.get_user_coin
+import dao.user as dao_user
 import pymongo
 
 
@@ -29,7 +30,11 @@ def check_order(params):
     user_coin = dap.get_user_coin.get_coin(params)
     print 'user_coin{}'.format(user_coin)
     print 'coin{}'.format(coin)
-    if user_coin >= coin:
+    if int(user_coin) - int(coin) >= 0:
+        _coin = int(user_coin) - int(coin)
+        dao_user.update({'user_id': params['user_id']}, {'coin': _coin})
+        print True
         return True
     else:
+        print False
         return False
