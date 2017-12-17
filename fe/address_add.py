@@ -23,7 +23,6 @@ def go():
 
     if error is None:
         result = d_address.add_address(params)
-        print result
         if result:
             dic['status'] = 'ok'
         else:

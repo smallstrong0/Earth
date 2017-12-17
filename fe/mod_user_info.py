@@ -19,7 +19,6 @@ def go():
     }
 
     if error is None:
-        print c_tool.sort_serialize(params)
         bool = d_mod_user_info.set_user_info(params)
         if bool:
             dic['status'] = 'ok'

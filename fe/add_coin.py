@@ -17,7 +17,6 @@ def go():
         'out_trade_no': None,
     }
     error, params = check.simple_go(keys)
-    print c_tool.sort_serialize(params)
 
     dic = {
     }
@@ -26,7 +25,6 @@ def go():
         data = dap.add_coin.get_data(params)
         r = requests.post(
             'https://api.mch.weixin.qq.com/pay/orderquery', data)
-        print r.content
         xml = etree.fromstring(r.content)  # 进行XML解析
         total_fee = xml.find("total_fee").text
         error, _coin = dap.add_coin.let_add_coin(params, total_fee)

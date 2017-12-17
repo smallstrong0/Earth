@@ -28,13 +28,9 @@ def get_order_list(params):
 def check_order(params):
     coin = params['coin']
     user_coin = dap.get_user_coin.get_coin(params)
-    print 'user_coin{}'.format(user_coin)
-    print 'coin{}'.format(coin)
     if int(user_coin) - int(coin) >= 0:
         _coin = int(user_coin) - int(coin)
         dao_user.update({'user_id': params['user_id']}, {'coin': _coin})
-        print True
         return True
     else:
-        print False
         return False

@@ -68,7 +68,6 @@ def sort_serialize(data):
     try:
         return json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False)
     except Exception as e:
-        # print e
         return None
 
 

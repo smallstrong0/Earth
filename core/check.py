@@ -29,7 +29,6 @@ def simple_go(keys):
     error = None
     params = {}
     params_list = eval(request.values.items().__str__())
-    # print c_tool.sort_serialize(params_list)
     for item in params_list:
         params[item[0]] = item[1]
     params, error = get_web_params(keys, params)
