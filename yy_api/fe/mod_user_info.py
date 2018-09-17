@@ -4,7 +4,7 @@
 import core.check as check
 import tool.c_utils as c_tool
 import requests
-import dap.mod_user_info as d_mod_user_info
+import yy_api.dap.mod_user_info as d_mod_user_info
 
 
 def go():

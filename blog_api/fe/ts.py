@@ -1,14 +1,19 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# @Time    : 2018/9/17 10:45
+# @Author  : SmallStrong
+# @Des     : 
+# @File    : ts.py
+# @Software: PyCharm
 
 import core.check as check
 import tool.c_utils as c_tool
-import yy_api.dap.address as d_address
+import tool.t_utils as t_tool
 
 
 def go():
     keys = {
-        'address_id': None,
+        'ts': None,
     }
     error, params = check.simple_go(keys)
 
@@ -16,11 +21,11 @@ def go():
     }
 
     if error is None:
-        result = d_address.remove_address(params)
-        if result:
-            dic.update(params)
+        ts = int(params['ts'])
+        if ts == -1:
+            dic['date'] = t_tool.get_time()
         else:
-            error = '删除地址失败'
+            dic['date'] = t_tool.get_time(ts)
 
     if error is None:
         return c_tool.check_sort_serialize(data=dic)

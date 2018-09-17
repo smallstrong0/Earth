@@ -4,7 +4,7 @@
 import core.check as check
 import tool.c_utils as c_tool
 import requests
-import dap.recharge
+import yy_api.dap.recharge
 import tool.t_utils as t_tool
 from lxml import etree
 import random
@@ -22,7 +22,7 @@ def go():
     }
 
     if error is None:
-        data, out_trade_no = dap.recharge.get_data(params)
+        data, out_trade_no = yy_api.dap.recharge.get_data(params)
         dic['out_trade_no'] = out_trade_no
         r = requests.post(
             'https://api.mch.weixin.qq.com/pay/unifiedorder', data)

@@ -3,7 +3,7 @@
 
 import core.check as check
 import tool.c_utils as c_tool
-import dap.address as d_address
+import yy_api.dap.address as d_address
 
 
 def go():

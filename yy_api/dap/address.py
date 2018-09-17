@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
-import dao.address as dao_address
+import yy_api.dao.address as dao_address
 import pymongo
 
 

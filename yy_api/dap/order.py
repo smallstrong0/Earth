@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
-import dao.order as dao_order
-import dap.get_user_coin
-import dao.user as dao_user
+import yy_api.dao.order as dao_order
+import yy_api.dap.get_user_coin
+import yy_api.dao.user as dao_user
 import pymongo
 
 

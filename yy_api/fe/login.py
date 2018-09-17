@@ -5,7 +5,7 @@ import core.check as check
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
 import requests
-import dap.login as d_login
+import yy_api.dap.login as d_login
 import key
 
 

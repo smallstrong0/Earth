@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
-import dao.user as dao_user
+import yy_api.dao.user as dao_user
 import pymongo
 
 

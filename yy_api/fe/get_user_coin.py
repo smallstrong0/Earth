@@ -4,7 +4,7 @@
 import core.check as check
 import tool.c_utils as c_tool
 import tool.t_utils as t_tool
-import dap.get_user_coin
+import yy_api.dap.get_user_coin
 import key
 
 
@@ -15,7 +15,7 @@ def go():
     error, params = check.simple_go(keys)
     info = {'coin_num': 0}
     if error is None:
-        coin_num = dap.get_user_coin.get_coin(params)
+        coin_num = yy_api.dap.get_user_coin.get_coin(params)
         info['coin_num'] = coin_num
 
     if error is None:
