@@ -30,10 +30,10 @@ def blog_go(func):
     return response
 
 
-@app.route('/api/wte_api/<module>/<func>', methods=['GET', 'POST'])
+@app.route('/api/wte_api/app/<module>/<func>', methods=['GET', 'POST'])
 def wte_go(module, func):
-    exec 'import wte_api.{}.{}'.format(module, func)
-    data = eval('wte_api.{}.{}.go()'.format(module, func))
+    exec 'import wte_api.app.{}.{}'.format(module, func)
+    data = eval('wte_api.app.{}.{}.go()'.format(module, func))
     response = make_response(data)
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
