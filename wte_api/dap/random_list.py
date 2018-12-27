@@ -19,6 +19,7 @@ def get_random_list():
         key = redis_cli.randomkey()
 
         data = redis_cli.hgetall(key.split('xcf:')[1])
+        data['key'] = key
         data['step_urls'] = eval(data.get('step_urls', '[]'))
 
         data['materials'] = data.get('materials', '[]').decode('raw_unicode_escape').encode('utf8')
