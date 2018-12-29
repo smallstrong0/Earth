@@ -39,5 +39,14 @@ def wte_go(module, func):
     return response
 
 
+@app.route('/api/pdf_api/app/<module>/<func>', methods=['GET', 'POST'])
+def wte_go(module, func):
+    exec 'import pdf_api.app.{}.{}'.format(module, func)
+    data = eval('pdf_api.app.{}.{}.go()'.format(module, func))
+    response = make_response(data)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+
 if __name__ == '__main__':
     app.run()
