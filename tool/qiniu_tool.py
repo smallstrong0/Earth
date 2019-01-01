@@ -9,9 +9,16 @@ from qiniu import build_batch_stat, Auth, BucketManager
 from key import QINIU
 import c_utils
 
+import pdf_api.common._redis as redis_go
+
+redis_cli = redis_go.cli()
+PDF_URL = 'pdf_set'
+PDF_DIC_URL = 'pdf_dic_set'
+
 
 def go():
-    result_url_list = []
+    result_url_dic = {}
+    result_name_list = []
     base_url = u'http://pkdsmwim0.bkt.clouddn.com/'
     q = Auth(QINIU['AK'], QINIU['SK'])
     bucket = BucketManager(q)
@@ -26,9 +33,14 @@ def go():
     marker = None
     ret, eof, info = bucket.list(bucket_name, prefix, marker, limit, delimiter)
     for data in c_utils.deserialize(info.text_body)['commonPrefixes']:
-        result_url_list.append(base_url + data + 'pdf')
+        result_url_dic[data + 'pdf'] = base_url + data + 'pdf'
+        result_name_list.append(data + 'pdf')
 
-    print c_utils.sort_serialize(result_url_list)
+    redis_cli.sadd('{}'.format(PDF_URL), tuple(result_name_list))
+    redis_cli.hmset(PDF_DIC_URL, result_url_dic)
+
+    print c_utils.sort_serialize(result_url_dic)
+    print c_utils.sort_serialize(result_name_list)
 
 
 if __name__ == '__main__':
