@@ -21,7 +21,8 @@ NS = 'pdf'
 
 class cli:
     def __init__(self):
-        self.__cli = redis.Redis()
+        self.__cli = redis.StrictRedis(host='127.0.0.1', port=6379, db=0, password='Wang1234!')
+        # self.__cli = redis.Redis()
 
     def exists(self, k):
         if self.__cli is None:

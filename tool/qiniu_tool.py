@@ -5,9 +5,16 @@
 # @Des     : 
 # @File    : qiniu_tool.py
 # @Software: PyCharm
+
+import os
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 from qiniu import build_batch_stat, Auth, BucketManager
-from key import QINIU
 import c_utils
+from key import QINIU
 
 import pdf_api.common._redis as redis_go
 
@@ -35,8 +42,11 @@ def go():
     for data in c_utils.deserialize(info.text_body)['commonPrefixes']:
         result_url_dic[data + 'pdf'] = base_url + data + 'pdf'
         result_name_list.append(data + 'pdf')
-
-    redis_cli.sadd('{}'.format(PDF_URL), tuple(result_name_list))
+    for s in result_name_list:
+        code = redis_cli.sadd(PDF_URL, s)
+        print(code)
+        if not code:
+            print(s)
     redis_cli.hmset(PDF_DIC_URL, result_url_dic)
 
     print c_utils.sort_serialize(result_url_dic)
