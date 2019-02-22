@@ -25,5 +25,13 @@ def key2search(key):
     result_list = []
     for k in list(s):
         if str(key).upper() in str(k).upper():
-            result_list.append({k: d[k]})
+            url_key_list = str(d[k]).split("|||")
+            dic = {
+                'book_name': k,
+                'url': url_key_list[0],
+                'password': url_key_list[1],
+            }
+            result_list.append(dic)
     return result_list
+
+

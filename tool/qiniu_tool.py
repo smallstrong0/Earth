@@ -33,7 +33,7 @@ def go():
     # 前缀
     prefix = ''
     # 列举条目
-    limit = 100
+    limit = 1000
     # 列举出除'/'的所有文件以及以'/'为分隔的所有前缀
     delimiter = '.'
     # 标记
@@ -51,6 +51,8 @@ def go():
 
     print c_utils.sort_serialize(result_url_dic)
     print c_utils.sort_serialize(result_name_list)
+
+    print(len(result_name_list))
 
 
 if __name__ == '__main__':
