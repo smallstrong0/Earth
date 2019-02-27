@@ -8,3 +8,4 @@ publish.sh
 uwsgi.ini
 pdf_api/bc.txt
 pdf_api/p.py
+pdf_api/tool/img
