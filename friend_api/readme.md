@@ -15,6 +15,8 @@
 > api文档地址
 [https://smallstrong.wang/friend_apidoc/index.html](https://smallstrong.wang/friend_apidoc/index.html)
 
+>项目地址
+[https://github.com/smallstrong0/Earth/tree/master/friend_api](https://github.com/smallstrong0/Earth/tree/master/friend_api)
 
 > 如何测试
 1.您可运行test/api_test文件进行测试
