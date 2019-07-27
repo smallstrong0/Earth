@@ -31,6 +31,11 @@ def simple_go(keys):
     params_list = eval(request.values.items().__str__())
     for item in params_list:
         params[item[0]] = item[1]
+    if request.json:
+        params.update(request.json)
+    # f = request.files['file']
+    # if f:
+    #     print(111111)
     params, error = get_web_params(keys, params)
 
     return error, params

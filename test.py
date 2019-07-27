@@ -48,14 +48,25 @@ def createGenerator():
 
 if __name__ == '__main__':
     # go()
-    a = [2, 3, 1, 0]
-    map(lambda x: x > 1, a)
-    print(a)
-    import time
-    time.sleep(10)
+    # a = [2, 3, 1, 0]
+    # map(lambda x: x > 1, a)
+    # print(a)
+    # import time
+    # time.sleep(10)
+    #
+    # b = 1
+    # if b is None:
+    #     print(111)
+    # else:
+    #     print(222)
+    import re
 
-    b = 1
-    if b is None:
-        print(111)
-    else:
-        print(222)
+    # a = "cbdjsbcjsdb"
+    # print a[1:3]
+    print re.match("a","csdcdsc")
+    print re.search("a","cdasca")
+    print(re.search('super', 'superssssuperstitionsupersupersupersuper').span())
+    print re.findall("a","cdscdscacdmska")
+    import random
+    random.triangular()
+

@@ -48,5 +48,14 @@ def pdf_go(module, func):
     return response
 
 
+@app.route('/api/friend_api/app/<module>/<func>', methods=['GET', 'POST'])
+def friend_go(module, func):
+    exec 'import friend_api.app.{}.{}'.format(module, func)
+    data = eval('friend_api.app.{}.{}.go()'.format(module, func))
+    response = make_response(data)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+
 if __name__ == '__main__':
     app.run()

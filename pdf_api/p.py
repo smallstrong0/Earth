@@ -87,3 +87,4 @@ if __name__ == '__main__':
     for line in fh.readlines():
         _list.append(line.split("链接:")[0].strip())
     print sort_serialize(_list)
+
